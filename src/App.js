@@ -5,8 +5,8 @@ class App extends Component{
   render () {
     return (
         <div className="container center">
-            <h1>Oui je commence à reacter haha</h1>
             <NavBar />
+            <h1>Oui je commence à reacter haha</h1>
         </div>
     );
   }
