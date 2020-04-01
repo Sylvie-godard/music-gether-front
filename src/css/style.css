@@ -1,6 +1,32 @@
+a {
+    text-decoration: none;
+}
+
 .navBar {
-    padding: 1rem 1rem 0.3rem 2rem;
+    display: flex;
+    padding: 2rem 0 2rem 2rem;
     margin: 0 0 0 0;
     background-color: #50aac5;
+    box-sizing: border-box;
     box-shadow: 0 0.8rem 0.7rem grey;
+    color: white;
+    list-style: none;
+    justify-content: center;
+}
+
+.navBar li {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-right: solid 1px;
+    display: inline;
+    width: 4rem;
+    justify-content: space-around;
+}
+
+.navBar li:nth-child(3) {
+    border: none;
+}
+
+.navBar a {
+    color: white;
 }

@@ -5,8 +5,8 @@ import {
 } from "react-router-dom";
 import { Route, Switch } from "react-router";
 import '../css/style.css';
-import About from '../AboutComponent/About';
-import Test from '../TestComponent/Test';
+import Contact from '../ContactComponent/Contact';
+import Concert from '../ConcertComponent/Concert';
 
 const NavBar = () => {
     return (
@@ -14,18 +14,21 @@ const NavBar = () => {
             <div>
                 <ul className="navBar">
                     <li>
-                        <Link to="/about">About</Link>
+                        <Link to="/">Accueil</Link>
                     </li>
                     <li>
-                        <Link to="/test">Test</Link>
+                        <Link to="/concert">Concert</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">Contact</Link>
                     </li>
                 </ul>
                 <Switch>
-                    <Route path="/about">
-                        <About />
+                    <Route path="/contact">
+                        <Contact />
                     </Route>
-                    <Route path="/:user">
-                        <Test />
+                    <Route path="/concert">
+                        <Concert />
                     </Route>
                 </Switch>
             </div>

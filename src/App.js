@@ -6,7 +6,6 @@ class App extends Component{
     return (
         <div className="container center">
             <NavBar />
-            <h1>Oui je commence à reacter haha</h1>
         </div>
     );
   }
