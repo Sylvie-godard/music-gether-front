@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import ArtistCard from "./ArtistCardComponent";
 
 const Concert = () => {
     const [concerts, setConcerts] = useState(null);
@@ -21,23 +22,13 @@ const Concert = () => {
     }
     return (
         <div className='container-body'>
+            <div className='concert_title'>
+                <h1>Trouve ton Compagnon</h1>
+                <h2>Les concerts les plus populaires</h2>
+            </div>
             {isLoading ?
                 concerts.map((value, index) => {
-                    return <div key={index} className='card_concert'>
-                        <img className='round_img' src={ require(`../css/img/${value.photo_url}`) } />
-                        <div>
-                            <p>
-                                <h2><strong>{value.artist}</strong></h2><br/>
-                                <strong>{value.date}</strong>
-                            </p>
-                            <p>{value.address}</p>
-                            <p><strong>{value.price} €</strong></p>
-                        </div>
-                        <div>
-                            <button>Trouver un compagnon</button>
-                            <button>Réserver un billet</button>
-                        </div>
-                    </div>
+                    return <ArtistCard value={value} index={index}/>
                 })
                 :
                 <p>En chargement ... patience</p>

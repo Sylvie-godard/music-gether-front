@@ -10,10 +10,14 @@ body {
     margin: 0 5rem 0 5rem;
 }
 
+.concert_title {
+    margin-left: 9rem;
+    color: #266E7B;
+}
 .card_concert {
     background-color: rgba(255, 255, 255, 0.8);
     border: none;
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 1rem 1rem 1rem 1rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2rem;
@@ -24,8 +28,18 @@ body {
 }
 
 .card_concert button {
+    margin-top: 2rem;
     display: block;
+    padding-top: 1rem;
+    text-align: center;
+    padding-bottom: 1rem;
     justify-content: center;
+    background-color: rgba(38, 110, 123, 1);
+    border: none;
+    font: normal normal bold 14px/1.4em raleway,sans-serif;
+    color: white;
+    cursor: pointer;
+    border-radius: 0.2rem;
 }
 .navBar {
     display: flex;
@@ -53,7 +67,13 @@ body {
 }
 
 .navBar a {
+    font-weight: bold;
+    transition: color 0.4s ease 0s;
     color: white;
+}
+a:selected
+.navBar a:active {
+    color: black;
 }
 
 .navBar a:hover {
@@ -61,9 +81,8 @@ body {
 }
 
 .round_img{
-    width: 10rem;
-    height: 10rem;
+    width: 14rem;
+    height: 14rem;
     border: none;
     border-radius: 10rem;
-    box-shadow: 0 0.8rem 0.7rem black;
 }
