@@ -2,13 +2,38 @@ a {
     text-decoration: none;
 }
 
+body {
+    background-image: url('img/concert-audience.jpg');
+}
+
+.container-body {
+    margin: 0 5rem 0 5rem;
+}
+
+.card_concert {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 2rem 2rem 2rem 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-around;
+    width: 50rem;
+    color: #266E7B;
+}
+
+.card_concert button {
+    display: block;
+    justify-content: center;
+}
 .navBar {
     display: flex;
     padding: 2rem 0 2rem 2rem;
-    margin: 0 0 0 0;
+    margin: 0 0 3rem 0;
     background-color: #50aac5;
     box-sizing: border-box;
-    box-shadow: 0 0.8rem 0.7rem grey;
+    box-shadow: 0 0.8rem 1.7rem black;
     color: white;
     list-style: none;
     justify-content: center;
@@ -29,4 +54,16 @@ a {
 
 .navBar a {
     color: white;
+}
+
+.navBar a:hover {
+    color: black;
+}
+
+.round_img{
+    width: 10rem;
+    height: 10rem;
+    border: none;
+    border-radius: 10rem;
+    box-shadow: 0 0.8rem 0.7rem black;
 }
