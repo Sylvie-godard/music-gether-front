@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router";
 import '../css/style.css';
 import Contact from '../ContactComponent/Contact';
 import Concert from '../ConcertComponent/Concert';
+import Home from "../Home/HomeComponent";
 
 const NavBar = () => {
     return (
@@ -24,6 +25,10 @@ const NavBar = () => {
                     </li>
                 </ul>
                 <Switch>
+                    <Route exact path="/">
+                        <Home />
+                    </Route>
+
                     <Route path="/contact">
                         <Contact />
                     </Route>
