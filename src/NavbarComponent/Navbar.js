@@ -9,6 +9,7 @@ import Contact from '../ContactComponent/Contact';
 import Concert from '../ConcertComponent/Concert';
 import Home from "../Home/HomeComponent";
 import User from "../UserComponent/User";
+import Connexion from "../ConnexionComponent/Connexion";
 import LOGOconcert from "../css/img/LOGOconcert.png";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
@@ -32,6 +33,9 @@ const NavBar = () => {
                             <li>
                                 <Link to='/contact'>Contact</Link>
                             </li>
+                            <li>
+                                <Link to='/login'>Connexion</Link>
+                            </li>
                         </div>
                         <div className='menu-profile'>
                             <li>
@@ -47,6 +51,9 @@ const NavBar = () => {
                             <Home />
                         </Route>
 
+                        <Route path='/login'>
+                            <Connexion />
+                        </Route>
                         <Route path='/contact'>
                             <Contact />
                         </Route>

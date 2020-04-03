@@ -7,6 +7,7 @@ html {
     width: 100%;
     height: 100%;
 }
+
 body {
     background-image: url('img/concert-audience.jpg');
     background-attachment: fixed;
@@ -20,7 +21,7 @@ footer {
     color: white;
     text-align: center;
     background: #242222;
-    width:100%;
+    width: 100%;
     bottom: 0;
 }
 
@@ -71,11 +72,12 @@ footer {
     justify-content: center;
     background-color: rgba(38, 110, 123, 1);
     border: none;
-    font: normal normal bold 14px/1.4em raleway,sans-serif;
+    font: normal normal bold 14px/1.4em raleway, sans-serif;
     color: white;
     cursor: pointer;
     border-radius: 0.2rem;
 }
+
 .navBar {
     display: flex;
     margin: 0 0 3rem 0;
@@ -119,6 +121,10 @@ footer {
     color: white;
 }
 
+.image-item {
+    padding: 20px 0 20px 20px;
+}
+
 .navBar a:active {
     color: black;
 }
@@ -127,7 +133,7 @@ footer {
     color: black;
 }
 
-.round_img{
+.round_img {
     width: 14rem;
     height: 14rem;
     border: none;
@@ -138,17 +144,50 @@ footer {
     background-color: white;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    width:100%;
 }
 
 .center {
     color: #266E7B;
     text-align: center;
 }
-.bande-user-img {
-    width:100%;
+
+.texBox input {
+    width: 20rem;
+    color: white;
+    height: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border: none;
+    border-radius: 1rem;
+    background-color: #50aac5;
 }
 
+.texBox ::placeholder {
+    color: white;
+}
+
+.auth-model {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2rem;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 40rem;
+    height: 20rem;
+    margin-bottom: 10rem;
+}
+
+.send-box {
+    cursor: pointer;
+    font: normal normal bold 14px/1.4em raleway, sans-serif;
+    background-color: #266E7B;
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    width: 10rem;
+    height: 3rem;
+    margin-bottom: 15rem;
+}
 
 
 
