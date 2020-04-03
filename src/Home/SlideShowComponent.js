@@ -5,7 +5,10 @@ import ayo1 from '../css/img/ayo1.jpg'
 import bigaRanx from '../css/img/biga_ranx.jpg'
 
 const properties = {
-
+    duration: 5000,
+    transitionDuration: 500,
+    infinite: true,
+    indicators: true,
 };
 
 const SlideShow = () => {
@@ -15,6 +18,7 @@ const SlideShow = () => {
                 <div className='each-slide'>
                     <div>
                         <img src={Solidays} alt="" />
+                        <button>test</button>
                     </div>
                 </div>
                 <div className='each-slide'>
