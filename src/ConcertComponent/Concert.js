@@ -17,9 +17,6 @@ const Concert = () => {
         fetchData()
     }, []);
 
-    if (isLoading) {
-        console.log(concerts[0]);
-    }
     return (
         <div className='container-body'>
             <div className='concert_title'>

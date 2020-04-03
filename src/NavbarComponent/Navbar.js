@@ -8,6 +8,7 @@ import '../css/style.css';
 import Contact from '../ContactComponent/Contact';
 import Concert from '../ConcertComponent/Concert';
 import Home from "../Home/HomeComponent";
+import User from "../UserComponent/User";
 import LOGOconcert from "../css/img/LOGOconcert.png";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
@@ -34,7 +35,7 @@ const NavBar = () => {
                         </div>
                         <div className='menu-profile'>
                             <li>
-                                <Link to='/'><AccountCircleIcon /></Link>
+                                <Link to='/users'><AccountCircleIcon /></Link>
                             </li>
                             <li>
                                 <Link to='/concert'><PowerSettingsNewIcon /></Link>
@@ -51,6 +52,9 @@ const NavBar = () => {
                         </Route>
                         <Route path='/concert'>
                             <Concert />
+                        </Route>
+                        <Route path='/users'>
+                            <User />
                         </Route>
                     </Switch>
                 </div>
