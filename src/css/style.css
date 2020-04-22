@@ -170,6 +170,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     padding-top: 2rem;
+    padding-bottom: 2rem;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.8);
     width: 40rem;
@@ -186,9 +187,38 @@ footer {
     border-radius: 1rem;
     width: 10rem;
     height: 3rem;
-    margin-bottom: 15rem;
 }
 
+.error {
+    color: #ff211a;
+
+}
+
+.concert-participant {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    width: 52rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+}
+
+.concert-participant img {
+    width: 52rem;
+}
+.big-buttons {
+    justify-content: center;
+    background-color: rgba(38, 110, 123, 1);
+    color: white;
+    width: 26rem;
+    padding-top: 1rem;
+    text-align: center;
+    padding-bottom: 1rem;
+    border: none;
+    font: normal normal bold 14px/1.4em raleway, sans-serif;
+    cursor: pointer;
+    border-radius: 0.2rem;
+}
 
 
 
