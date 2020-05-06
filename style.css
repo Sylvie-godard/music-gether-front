@@ -9,7 +9,10 @@ html {
 }
 
 body {
-    background-image: url('img/concert-audience.jpg');
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url('/img/concert-audience.jpg');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -28,6 +31,8 @@ footer {
 .containerSlide {
     margin-left: auto;
     margin-right: auto;
+    padding-bottom: 5rem;
+    width: 95%;
 }
 
 .containerSlide img {
@@ -86,6 +91,7 @@ footer {
     box-shadow: 0 0.8rem 1.7rem black;
     color: white;
     justify-content: space-around;
+    padding-bottom: 2rem;
 }
 
 .logo {

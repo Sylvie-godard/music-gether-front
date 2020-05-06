@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import axios from "axios";
-import { useAuth } from "../Context/auth";
 
-const Connexion = () => {
+const Login = () => {
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [isError, setIsError] = useState(false);
     const [email, setEmail] = useState('');
@@ -36,9 +35,6 @@ const Connexion = () => {
                     }}
                     placeholder='...email'
                 />
-            </div>
-
-            <div className='texBox'>
                 <input
                     type='password'
                     value={password}
@@ -54,4 +50,4 @@ const Connexion = () => {
     );
 }
 
-export default Connexion
+export default Login

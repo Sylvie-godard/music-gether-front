@@ -1,21 +1,22 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import {Slide} from 'react-slideshow-image';
+import Slider from "react-slick";
+
 
 const properties = {
-    duration: 0,
-    transitionDuration: 5000,
+    dots: true,
     infinite: true,
-    indicators: false,
-    arrows: false,
+    slidesToShow: 3,
+    slidesToScroll: 3
 };
 
-const User = () => {
+
+const User: React.FC<{}> = () => {
     const [users, setUsers] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
     async function fetchData() {
-        const response = await axios.get('http://127.0.0.1:8080/users');
+        const response = await axios.get("http://127.0.0.1:8080/users");
         const data = await response.data;
         setUsers(data.data);
         setIsLoading(true);
@@ -26,18 +27,18 @@ const User = () => {
     }, []);
 
     return (
-        <div className='bande-user'>
-            <h2 className='center'>Accompagnez les à leurs prochains concert</h2>
+        <div className="bande-user">
+            <h2 className="center">Accompagnez les à leurs prochains concert</h2>
             <div>
                 {isLoading ?
-                    <Slide{...properties}>
+                    <Slider{...properties}>
                         {
                             users.map((value, index) => {
-                                return <img key={index} className='round_img' alt={value.photo_url}
-                                            src={require(`../css/img/${value.photo_url}`)}/>
+                                return <img key={index} className="round_img" alt={value.photo_url}
+                                            src={`/img/${value.photo_url}`}/>
                             })
                         }
-                    </Slide>
+                    </Slider>
                     :
                     <p>Chargement...</p>
                 }

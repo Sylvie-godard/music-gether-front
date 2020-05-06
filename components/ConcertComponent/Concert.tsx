@@ -1,9 +1,9 @@
 import React from "react";
 
-const Concert = () => {
+const Concert: React.FC<{}> = () => {
     return (
         <div className='concert-participant'>
-            <img alt='' src={require(`../css/img/mura_masa.jpg`)}/>
+            <img alt='' src='/img/ayo1.jpg'/>
             <div>
                 <h2>"gfg"</h2><br/>
                 <strong>"dfdd"</strong>

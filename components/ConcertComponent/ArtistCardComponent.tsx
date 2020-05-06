@@ -1,9 +1,22 @@
-import React from 'react';
+import React from "react";
 
-const ArtistCard = ({value, index}) => {
+interface Artist {
+    photo_url: string;
+    address: string;
+    date: string;
+    price: number;
+    artist: string;
+}
+
+interface Props {
+    value: Artist;
+}
+
+const ArtistCard: React.FC<Props> = ({value}) => {
+    console.log(value.photo_url);
     return (
-        <div key={index} className='card_concert'>
-            <img className='round_img' alt={value.photo_url} src={require(`../css/img/${value.photo_url}`)}/>
+        <div className='card_concert'>
+            <img className='round_img' alt={value.photo_url} src={`/img/${value.photo_url}`}/>
             <div>
                 <h2>{value.artist}</h2><br/>
                 <strong>{value.date}</strong>
