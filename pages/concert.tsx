@@ -10,7 +10,7 @@ const Concert: React.FC<{}> = () => {
                 <p>'okok'</p>
                 <p><strong>'ojokokok'</strong></p>
             </div>
-            <div>
+            <div className='buttons-concert'>
                 <button className='big-buttons'>Compagnons</button>
                 <button className='big-buttons'>Billeterie</button>
             </div>

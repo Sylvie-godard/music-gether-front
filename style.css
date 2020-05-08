@@ -212,45 +212,20 @@ footer {
 .concert-participant img {
     width: 52rem;
 }
+
+.buttons-concert {
+    display: flex;
+    justify-content: space-between;
+}
+
 .big-buttons {
-    justify-content: center;
-    background-color: rgba(38, 110, 123, 1);
+    background-color: rgba(38, 110, 123, 0.6);
     color: white;
-    width: 26rem;
+    font: normal normal 700 35px/1.4em raleway,sans-serif;
+    width: 25rem;
     padding-top: 1rem;
-    text-align: center;
     padding-bottom: 1rem;
     border: none;
-    font: normal normal bold 14px/1.4em raleway, sans-serif;
     cursor: pointer;
     border-radius: 0.2rem;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
