@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 interface Artist {
     photo_url: string;
@@ -6,6 +7,7 @@ interface Artist {
     date: string;
     price: number;
     artist: string;
+    id: number;
 }
 
 interface Props {
@@ -13,7 +15,6 @@ interface Props {
 }
 
 const ArtistCard: React.FC<Props> = ({value}) => {
-    console.log(value.photo_url);
     return (
         <div className='card_concert'>
             <img className='round_img' alt={value.photo_url} src={`/img/${value.photo_url}`}/>
@@ -24,7 +25,9 @@ const ArtistCard: React.FC<Props> = ({value}) => {
                 <p><strong>{value.price} €</strong></p>
             </div>
             <div>
-                <button>Trouver un compagnon</button>
+                    <Link href="/concerts/[pid]" as={`/concerts/${value.id}`}>
+                        <button>Trouver un compagnon</button>
+                    </Link>
                 <button>Réserver un billet</button>
             </div>
         </div>

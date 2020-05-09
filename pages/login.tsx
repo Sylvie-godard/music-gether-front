@@ -1,14 +1,20 @@
-import React, {useState} from "react";
+import React, {SetStateAction, useState, Dispatch} from "react";
 import axios from "axios";
 import {Formik} from "formik";
 
-const Login = () => {
-    const [isLoggedIn, setLoggedIn] = useState(false);
-    const [isError, setIsError] = useState(false);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+/** Validate errors from login form */
+interface IErrors {
+    email?: string;
+    password?: string;
+}
 
-    function postLogin() {
+const Login: React.FC<{}> = () => {
+    const [isLoggedIn, setLoggedIn]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
+    const [isError, setIsError]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
+    const [email, setEmail]: [string, Dispatch<SetStateAction<string>>] = useState('');
+    const [password, setPassword]: [string, Dispatch<SetStateAction<string>>] = useState('');
+
+    function postLogin(): void {
         axios.post("http://127.0.0.1:8080/users/auth/login", null, { params: {
                 email,
                 password
@@ -23,31 +29,32 @@ const Login = () => {
         });
     }
 
+    function validateValues(values): IErrors {
+        const errors: IErrors = {};
+
+        if (!values.email) {
+            errors.email = 'Email requis';
+        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+            errors.email = 'L\'addresse email est invalide';
+        }
+
+        if (!values.password) {
+            errors.password = 'Mot de passe requis';
+        }
+
+        return errors;
+    }
+
     return (
         <div className='auth-model'>
             <h1>Se connecter</h1>
             <Formik
                 initialValues={{ email: '', password: '' }}
-                validate={values => {
-                    const errors = {};
-                    if (!values.email) {
-                        errors.email = 'Email requis';
-                    } else if (
-                        !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                    ) {
-                        errors.email = 'L\'addresse email est invalide';
-                    }
-
-                    if (!values.password) {
-                        errors.password = 'Mot de passe requis';
-                    }
-
-                    return errors;
-                }}
+                validate={validateValues}
                 onSubmit={(values, { setSubmitting }) => {
                     setEmail(values.email);
                     setPassword(values.password);
-                    setSubmitting(false);
+                    setSubmitting(true);
                 }}
             >
                 {({
@@ -66,7 +73,6 @@ const Login = () => {
                             type="email"
                             name="email"
                             onChange={handleChange}
-                            onBlur={handleBlur}
                             value={values.email}
                             placeholder='...email'
                         />
@@ -75,7 +81,6 @@ const Login = () => {
                             type="password"
                             name="password"
                             onChange={handleChange}
-                            onBlur={handleBlur}
                             value={values.password}
                             placeholder='...mot de passe'
                         />

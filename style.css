@@ -157,9 +157,11 @@ footer {
     text-align: center;
 }
 
+.texBox {
+    margin: 2rem auto 0 auto;
+}
 .texBox input {
     width: 20rem;
-    color: white;
     height: 3rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -201,6 +203,7 @@ footer {
 }
 
 .concert-participant {
+    padding: 1rem 1rem 1rem 1rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 2rem;
@@ -209,7 +212,11 @@ footer {
     border: none;
 }
 
-.concert-participant img {
+.concert-participant h2 {
+    color: #266E7B;
+}
+
+.img-width {
     width: 52rem;
 }
 
@@ -228,4 +235,20 @@ footer {
     border: none;
     cursor: pointer;
     border-radius: 0.2rem;
+}
+
+.big-buttons:hover {
+    color: black;
+    background-color: rgb(38, 110, 123);
+    transition: color 0.4s, background-color 0.4s
+}
+
+.participants-concert {
+    display: flex;
+    justify-content: space-around;
+}
+
+.participant-card {
+    text-align: center;
+    color: rgb(38, 110, 123);
 }

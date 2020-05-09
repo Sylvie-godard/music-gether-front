@@ -1,17 +1,27 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, Dispatch, SetStateAction} from "react";
 import ArtistCard from "../components/ConcertComponent/ArtistCardComponent";
 import axios from "axios";
+import {IUser} from "./users";
+
+export interface IConcert {
+    id: number;
+    address: string;
+    artist: string;
+    date: string;
+    photo_url: string;
+    price: number;
+    participants: Array<IUser>
+}
 
 const Concerts: React.FC<{}> = () => {
-    const [concerts, setConcerts] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [concerts, setConcerts]: [Array<IConcert>, Dispatch<SetStateAction<Array<IConcert>>>] = useState([]);
+    const [isLoading, setIsLoading]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
 
     async function fetchData() {
         const response = await axios.get("http://127.0.0.1:8080/concerts");
-        const data = await response.data;
+        const data = response.data;
         setConcerts(data.data);
         setIsLoading(true);
-        console.log(data);
     }
 
     useEffect(() => {
@@ -25,7 +35,7 @@ const Concerts: React.FC<{}> = () => {
                 <h2>Les concerts les plus populaires</h2>
             </div>
             {isLoading ?
-                concerts.map((value, index) => {
+                concerts.map((value: IConcert, index: number) => {
                     return <ArtistCard key={index} value={value} />
                 })
                 :
