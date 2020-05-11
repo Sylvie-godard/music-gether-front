@@ -17,29 +17,29 @@ const NavBar: React.FC<{}> = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link href='/concerts'>
+                        <Link href={'/concerts'}>
                             <a>Concerts</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href='/contact'>
+                        <Link href={'/contact'}>
                             <a>Contact</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href='/login'>
+                        <Link href={'/login'}>
                             <a>Connexion</a>
                         </Link>
                     </li>
                 </div>
                 <div className='menu-profile'>
                     <li>
-                        <Link href='/users'>
+                        <Link href={'/users'}>
                             <a><AccountCircleIcon/></a>
                         </Link>
                     </li>
                     <li>
-                        <Link href='/concert'>
+                        <Link href={'/concert'}>
                             <a><PowerSettingsNewIcon/></a>
                         </Link>
                     </li>

@@ -1,6 +1,7 @@
-import React, {SetStateAction, useState, Dispatch} from "react";
+import React from "react";
 import axios from "axios";
-import {Formik} from "formik";
+import {Formik, useField} from "formik";
+import {useInfos} from "../components/Context";
 
 /** Validate errors from login form */
 interface IErrors {
@@ -9,27 +10,24 @@ interface IErrors {
 }
 
 const Login: React.FC<{}> = () => {
-    const [isLoggedIn, setLoggedIn]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
-    const [isError, setIsError]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
-    const [email, setEmail]: [string, Dispatch<SetStateAction<string>>] = useState('');
-    const [password, setPassword]: [string, Dispatch<SetStateAction<string>>] = useState('');
+    const { userLogin } = useInfos();
 
-    function postLogin(): void {
-        axios.post("http://127.0.0.1:8080/users/auth/login", null, { params: {
-                email,
-                password
-            }}).then(result => {
-            if (result.status === 201) {
-                setLoggedIn(true);
+    function postLogin(values): void {
+        axios.post("http://127.0.0.1:8080/login_check", {
+            username: values.email,
+            password: values.password
+        }).then(result => {
+            if (result.status === 200) {
+                userLogin({isLogin: true, jwt: result.data.token});
             } else {
-                setIsError(true);
+                userLogin({isLogin: false});
             }
-        }).catch(e => {
-            setIsError(true);
+        }).catch(() => {
+            userLogin({isLogin: false});
         });
     }
 
-    function validateValues(values): IErrors {
+    function handleErrors(values): IErrors {
         const errors: IErrors = {};
 
         if (!values.email) {
@@ -40,6 +38,8 @@ const Login: React.FC<{}> = () => {
 
         if (!values.password) {
             errors.password = 'Mot de passe requis';
+        } else if (values.password.length < 4) {
+            errors.password = 'Le mot de passe doit contenir au moins 4 caractères';
         }
 
         return errors;
@@ -50,11 +50,12 @@ const Login: React.FC<{}> = () => {
             <h1>Se connecter</h1>
             <Formik
                 initialValues={{ email: '', password: '' }}
-                validate={validateValues}
+                validate={handleErrors}
                 onSubmit={(values, { setSubmitting }) => {
-                    setEmail(values.email);
-                    setPassword(values.password);
-                    setSubmitting(true);
+                    postLogin(values)
+                    setTimeout(() => {
+                        setSubmitting(false);
+                    }, 1000);
                 }}
             >
                 {({
@@ -65,31 +66,32 @@ const Login: React.FC<{}> = () => {
                       handleBlur,
                       handleSubmit,
                       isSubmitting,
-                      /* and other goodies */
                   }) => (
-                    <form onSubmit={handleSubmit}>
-                        <div className='texBox'>
+                    <form className='texBox' onSubmit={handleSubmit}>
+                        <div>
+                            <p className='error'>{errors.email && touched.email && errors.email}</p>
                         <input
                             type="email"
                             name="email"
                             onChange={handleChange}
                             value={values.email}
+                            onBlur={handleBlur}
                             placeholder='...email'
                         />
-                        {errors.email && touched.email && errors.email}
+                        <p className='error'>{errors.password && touched.password && errors.password}</p>
                         <input
                             type="password"
                             name="password"
                             onChange={handleChange}
                             value={values.password}
+                            onBlur={handleBlur}
                             placeholder='...mot de passe'
                         />
-                        {errors.password && touched.password && errors.password}
                         </div>
-                        <button className='send-box' type="submit" disabled={isSubmitting} onClick={postLogin}>
+                        <button className='send-box' type="submit" disabled={isSubmitting}>
                             Se connecter
                         </button>
-                        { isError &&<p className='error'>The email or password provided were incorrect!</p> }
+                        <p><u><a href="#">Mot de passe oublié</a></u></p>
                     </form>
                 )}
             </Formik>

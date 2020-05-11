@@ -157,9 +157,6 @@ footer {
     text-align: center;
 }
 
-.texBox {
-    margin: 2rem auto 0 auto;
-}
 .texBox input {
     width: 20rem;
     height: 3rem;
@@ -168,6 +165,7 @@ footer {
     border: none;
     border-radius: 1rem;
     background-color: #50aac5;
+    color: white;
 }
 
 .texBox ::placeholder {
@@ -177,12 +175,11 @@ footer {
 .auth-model {
     margin-left: auto;
     margin-right: auto;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    justify-content: center;
+    padding: 2rem 10rem 2rem 10rem;
+    text-align: center;
     background-color: rgba(255, 255, 255, 0.8);
-    width: 40rem;
-    height: 20rem;
+    width: 20rem;
+    height: 25rem;
     margin-bottom: 10rem;
 }
 
@@ -197,9 +194,20 @@ footer {
     height: 3rem;
 }
 
+.send-box:hover {
+    background-color: #50aac5;
+    color: black;
+    border: solid #266E7B;
+    transition: border 0.4s, color 0.4s, background-color 0.4s
+}
+
 .error {
     color: #ff211a;
 
+}
+
+.blue-color {
+    color: #266E7B;
 }
 
 .concert-participant {
@@ -243,6 +251,27 @@ footer {
     transition: color 0.4s, background-color 0.4s
 }
 
+.button-participation {
+    text-align: center;
+}
+
+.button-participation button{
+    background-color: rgba(0, 77, 78, 1);
+    cursor: pointer !important;
+    color: white;
+    width: 5rem;
+    font: normal normal bold 14px/1.4em raleway, sans-serif;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    border: none;
+    border-radius: 0.2rem;
+    transition: border-color 0.4s ease 0s, background-color 0.4s ease 0s;
+}
+
+.button-participation button:hover {
+    background-color: rgb(38, 110, 123);
+    transition: background-color 0.7s
+}
 .participants-concert {
     display: flex;
     justify-content: space-around;
@@ -251,4 +280,9 @@ footer {
 .participant-card {
     text-align: center;
     color: rgb(38, 110, 123);
+}
+
+.concert-infos {
+    display: flex;
+    justify-content: space-between;
 }
