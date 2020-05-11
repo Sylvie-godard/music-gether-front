@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {Formik, useField} from "formik";
+import {Formik} from "formik";
 import {useInfos} from "../components/Context";
 
 /** Validate errors from login form */

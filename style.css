@@ -286,3 +286,36 @@ footer {
     display: flex;
     justify-content: space-between;
 }
+
+.container {
+    margin: 36px auto;
+    width: 100%;
+    max-width: 800px;
+}
+.search-label {
+    position: relative;
+}
+.container input {
+    border: none;
+    border-radius: 0.5rem ;
+    width: 80%;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgba(38, 110, 123, 1);
+    box-sizing: border-box;
+    outline: none;
+}
+.search-icon {
+    cursor: pointer;
+    position: absolute;
+    top: -0.5rem;
+    font-size: 24px;
+    right: 1rem;
+}
+
+.search-icon:hover {
+    color: #50aac5;
+    font-size: 30px;
+    transition: font-size 0.4s, color 0.4s;
+}

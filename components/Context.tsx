@@ -2,7 +2,6 @@ import React, {createContext, useState, useContext, Dispatch, SetStateAction} fr
 import cogoToast from 'cogo-toast';
 import Router from "next/router";
 import { setCookie } from 'nookies';
-import {IUser} from "../pages/users";
 
 interface IAuth {
     isLogin: boolean;
@@ -13,7 +12,7 @@ const LocalStateContext = createContext(null);
 const LocalStateProvider = LocalStateContext.Provider;
 
 const AppProvider: React.FC<{}> = ({ children }) => {
-    const [isLogin, setIsLogin] = useState(false);
+    const [isLogin, setIsLogin]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
     const [user, setUser]: [string, Dispatch<SetStateAction<string>>] = useState(null);
 
     const userLogin = (data: IAuth) => {
