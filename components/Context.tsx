@@ -1,7 +1,7 @@
 import React, {createContext, useState, useContext, Dispatch, SetStateAction} from "react";
-import cogoToast from 'cogo-toast';
+import cogoToast from "cogo-toast";
 import Router from "next/router";
-import { setCookie } from 'nookies';
+import { setCookie } from "nookies";
 
 interface IAuth {
     isLogin: boolean;
@@ -13,21 +13,21 @@ const LocalStateProvider = LocalStateContext.Provider;
 
 const AppProvider: React.FC<{}> = ({ children }) => {
     const [isLogin, setIsLogin]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
-    const [user, setUser]: [string, Dispatch<SetStateAction<string>>] = useState(null);
+    const [accessToken, setAccessToken]: [string, Dispatch<SetStateAction<string>>] = useState(null);
 
     const userLogin = (data: IAuth) => {
         setIsLogin(data.isLogin);
 
         if (data.isLogin && data.jwt) {
-            setUser(data.jwt);
-            setCookie(null, 'fromClientSide', 'isLogin', {
+            setAccessToken(data.jwt);
+            setCookie(null, "access-token", data.jwt, {
                 maxAge: 30 * 24 * 60 * 60,
-                path: '/',
+                path: "/",
             });
-            Router.push('/');
-            cogoToast.success('Super ! Vous êtes connecté :)');
+            Router.push("/");
+            cogoToast.success("Super ! Vous êtes connecté :)");
         } else {
-            cogoToast.error('Mince ! Vous avez oublié vos identifiants  :(');
+            cogoToast.error("Mince ! Vous avez oublié vos identifiants  :(");
         }
     };
 
@@ -36,7 +36,7 @@ const AppProvider: React.FC<{}> = ({ children }) => {
             value={{
                 userLogin,
                 isLogin,
-                user
+                accessToken
             }}
         >
             {children}

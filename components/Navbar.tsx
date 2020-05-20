@@ -8,7 +8,7 @@ const NavBar: React.FC<{}> = () => {
         <div>
             <ul className='navBar'>
                 <div>
-                    <img className='logo' src="" alt=''/>
+                    <img className='logo' src="/img/LOGOconcert.png" alt=''/>
                 </div>
                 <div className='menu'>
                     <li>
@@ -34,7 +34,7 @@ const NavBar: React.FC<{}> = () => {
                 </div>
                 <div className='menu-profile'>
                     <li>
-                        <Link href={'/users'}>
+                        <Link href={'/profile'}>
                             <a><AccountCircleIcon/></a>
                         </Link>
                     </li>

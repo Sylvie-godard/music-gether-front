@@ -36,7 +36,7 @@ const User: React.FC<{}> = () => {
 
     return (
         <div className="bande-user">
-            <h2 className="center">Accompagnez les à leurs prochains concert</h2>
+            <h2 className="center">Accompagnez les à leurs prochains concerts</h2>
             <div>
                 {isLoading ?
                     <Slider{...properties}>

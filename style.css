@@ -91,7 +91,6 @@ footer {
     box-shadow: 0 0.8rem 1.7rem black;
     color: white;
     justify-content: space-around;
-    padding-bottom: 2rem;
 }
 
 .logo {
@@ -256,6 +255,7 @@ footer {
 }
 
 .button-participation button{
+    margin-right: 0.5rem;
     background-color: rgba(0, 77, 78, 1);
     cursor: pointer !important;
     color: white;
