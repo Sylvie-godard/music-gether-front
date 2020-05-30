@@ -10,7 +10,7 @@ interface IErrors {
 }
 
 const Login: React.FC<{}> = () => {
-    const { userLogin } = useInfos();
+    const {userLogin} = useInfos();
 
     function postLogin(values): void {
         axios.post("http://127.0.0.1:8080/login_check", {
@@ -18,12 +18,12 @@ const Login: React.FC<{}> = () => {
             password: values.password
         }).then(result => {
             if (result.status === 200) {
-                userLogin({isLogin: true, jwt: result.data.token});
+                userLogin({isLogin: true, jwt: result.data.token, jwtRefresh: result.data.refresh_token});
             } else {
-                userLogin({isLogin: false});
+                userLogin({isLogin: false, jwt: null});
             }
         }).catch(() => {
-            userLogin({isLogin: false});
+            userLogin({isLogin: false, jwt: null});
         });
     }
 
@@ -49,9 +49,9 @@ const Login: React.FC<{}> = () => {
         <div className='auth-model'>
             <h1>Se connecter</h1>
             <Formik
-                initialValues={{ email: '', password: '' }}
+                initialValues={{email: '', password: ''}}
                 validate={handleErrors}
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(values, {setSubmitting}) => {
                     postLogin(values)
                     setTimeout(() => {
                         setSubmitting(false);
@@ -70,23 +70,23 @@ const Login: React.FC<{}> = () => {
                     <form className='texBox' onSubmit={handleSubmit}>
                         <div>
                             <p className='error'>{errors.email && touched.email && errors.email}</p>
-                        <input
-                            type="email"
-                            name="email"
-                            onChange={handleChange}
-                            value={values.email}
-                            onBlur={handleBlur}
-                            placeholder='...email'
-                        />
-                        <p className='error'>{errors.password && touched.password && errors.password}</p>
-                        <input
-                            type="password"
-                            name="password"
-                            onChange={handleChange}
-                            value={values.password}
-                            onBlur={handleBlur}
-                            placeholder='...mot de passe'
-                        />
+                            <input
+                                type="email"
+                                name="email"
+                                onChange={handleChange}
+                                value={values.email}
+                                onBlur={handleBlur}
+                                placeholder='...email'
+                            />
+                            <p className='error'>{errors.password && touched.password && errors.password}</p>
+                            <input
+                                type="password"
+                                name="password"
+                                onChange={handleChange}
+                                value={values.password}
+                                onBlur={handleBlur}
+                                placeholder='...mot de passe'
+                            />
                         </div>
                         <button className='send-box' type="submit" disabled={isSubmitting}>
                             Se connecter

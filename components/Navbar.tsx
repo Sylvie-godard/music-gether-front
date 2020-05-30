@@ -2,8 +2,10 @@ import React from 'react';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import Link from "next/link";
+import {useInfos} from "./Context";
 
 const NavBar: React.FC<{}> = () => {
+    const { user } = useInfos();
     return (
         <div>
             <ul className='navBar'>
@@ -26,10 +28,9 @@ const NavBar: React.FC<{}> = () => {
                             <a>Contact</a>
                         </Link>
                     </li>
-                    <li>
-                        <Link href={'/login'}>
-                            <a>Connexion</a>
-                        </Link>
+                    <li> {user.jwt ? null : <Link href={'/login'}>
+                        <a>Connexion</a>
+                    </Link>}
                     </li>
                 </div>
                 <div className='menu-profile'>

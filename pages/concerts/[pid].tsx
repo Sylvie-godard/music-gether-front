@@ -15,21 +15,24 @@ const Concert: React.FC<{}> = () => {
     const [isLoading, setIsLoading]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false);
 
     async function fetchData() {
-        const response: AxiosResponse = await axios.get(`http://127.0.0.1:8080/concerts/${pid}`);
-        const data = response.data;
-        setConcert(data.data);
-        setIsLoading(true);
+        if (pid) {
+            const response: AxiosResponse = await axios.get(`http://127.0.0.1:8080/concerts/${pid}`);
+            const data = response.data;
+            setConcert(data.data);
+            setIsLoading(true);
+        }
     }
 
     useEffect(() => {
-        fetchData()
-    }, []);
+        fetchData();
+    }, [pid]);
 
     if (isLoading) {
         return (
             <div className='concert-participant'>
                 <img className='img-width' alt={concert.photo_url} src={`/img/${concert.photo_url}`}/>
                 <ConcertInfos
+                    id={concert.id}
                     address={concert.address}
                     artist={concert.artist}
                     date={concert.date}
