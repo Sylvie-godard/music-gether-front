@@ -16,7 +16,7 @@
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.7",
     "@types/react-slick": "^0.23.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "cogo-toast": "^4.2.3",
     "formik": "^2.1.4",
     "next": "^9.3.6",
